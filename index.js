@@ -9,8 +9,28 @@ var uuidFromName = function(name){
    d[6] |= 0x30;
    d[8] &= 0x3F;
    d[8] |= 0x80;
-   return d;
+   return formatAsUuid(d);
 }
 
+var formatAsUuid = function(blob){
+   var formatted = "";
+   for(var i = 0; i < blob.length; i++){
+      if(i == 8){
+         formatted += "-";
+      }
+      if(i == 12){
+         formatted += "-";
+      }
+      if(i == 16){
+         formatted += "-";
+      }
+      if(i == 20){
+         formatted += "-";
+      }
+      formatted += blob[i];
+   }
+}
+
+exports.format = formatAsUuid;
 exports.named = uuidFromName;
 module.exports = exports;
