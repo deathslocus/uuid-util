@@ -29,6 +29,7 @@ var formatAsUuid = function(blob){
       }
       formatted += blob[i];
    }
+   return formatted;
 }
 
 exports.format = formatAsUuid;
